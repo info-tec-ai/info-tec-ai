@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INFO TRADER'S REPRESENT AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* Custom styles to override or enhance Tailwind, if needed */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a; /* Dark background from original index.html */
+      color: #f8fafc; /* Light text color for dark background */
+    }
+
+    /* Slogan specific styling, using gradient text */
+    .slogan-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem; /* Equivalent to md:text-4xl or lg:text-5xl */
+      font-weight: 900; /* Extra bold */
+      line-height: 1.2;
+      background: linear-gradient(90deg, #fde047 0%, #fbbf24 50%, #fcd34d 100%); /* Yellowish gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
+      animation: pulse 2s infinite alternate; /* Subtle pulsing animation */
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.02); opacity: 0.95; }
+    }
+
+    /* Custom radio button styles for better visibility on dark theme */
+    .custom-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .custom-radio span {
+      height: 20px;
+      width: 20px;
+      background-color: #374151; /* Dark gray for unselected */
+      border-radius: 50%;
+      border: 2px solid #6b7280; /* Lighter gray border */
+      display: inline-block;
+      position: relative;
+      margin-right: 10px;
+      vertical-align: middle;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .custom-radio input[type="radio"]:checked + span {
+      background-color: #10b981; /* Green for selected */
+      border-color: #059669;
+    }
+
+    .custom-radio input[type="radio"]:checked + span::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: white;
+      transform: translate(-50%, -50%);
+    }
+
+    .custom-radio label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.125rem; /* text-lg */
+      color: #d1d5db; /* Light gray text */
+      margin-bottom: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .custom-radio label:hover {
+      color: #e5e7eb; /* Slightly lighter on hover */
+    }
+
+    /* New "INDIAN TRADER'S WAIT IS OVER" styling */
+    .indian-traders-message {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem; /* Large and impactful */
+      font-weight: 900;
+      text-align: center;
+      padding-top: 1.5rem; /* Space from top */
+      margin-bottom: 0.5rem; /* Space between this and next message */
+      background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%); /* Blue gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 8px rgba(59, 130, 246, 0.6); /* Blue glow */
+      animation: fadeInDown 1s ease-out forwards;
+      position: relative;
+      z-index: 30; /* Higher z-index for top-most message */
+    }
+
+    @keyframes fadeInDown {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Enhanced "WAIT IS OVER NOW" styling */
+    .top-message {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem; /* Significantly larger */
+      font-weight: 900;
+      text-align: center;
+      padding-top: 0.5rem; /* Reduced padding-top as it's below the new title */
+      margin-bottom: 0.5rem; /* Space between this and new line */
+      background: linear-gradient(90deg, #f97316 0%, #ef4444 50%, #dc2626 100%); /* Fiery gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.6); /* Stronger glow */
+      animation: fadeInScale 1.5s ease-out forwards; /* More prominent animation */
+      position: relative; /* Needed for z-index to work correctly */
+      z-index: 20; /* Ensure it's above other content */
+    }
+
+    @keyframes fadeInScale {
+      0% { transform: scale(0.8); opacity: 0; }
+      70% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* New line below "WAIT IS OVER NOW" */
+    .sub-top-message {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #34d399; /* Green for emphasis */
+      text-align: center;
+      margin-bottom: 2rem; /* Space before hero section */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      animation: fadeIn 1.8s ease-out;
+      position: relative;
+      z-index: 15;
+    }
+
+    /* Professional Intro Paragraphs Styling */
+    .intro-paragraph-box {
+      background-color: #1f2937; /* Darker gray for the box */
+      padding: 1.5rem;
+      border-radius: 0.75rem; /* rounded-xl */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for boxes */
+      margin-bottom: 1.5rem; /* Space between boxes */
+      max-width: 700px; /* Control line length for readability */
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .intro-paragraph-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .intro-paragraph {
+      font-size: 1.125rem; /* text-lg, adjusted slightly to fit boxes */
+      line-height: 1.6;
+      font-weight: 400; /* Regular weight inside boxes */
+      color: #cbd5e1; /* Slightly lighter gray for good contrast */
+    }
+
+    .intro-paragraph strong {
+      color: #34d399; /* Green for key phrases */
+      font-weight: 800; /* Extra bold for emphasis */
+      text-shadow: 0.5px 0.5px 2px rgba(0,0,0,0.2);
+    }
+
+    .intro-paragraph.highlight {
+      font-size: 1.25rem; /* Slightly larger for the main problem/solution statement */
+      color: #fca5a5; /* Reddish hue to highlight the problem */
+      font-weight: 700; /* Bolder for the core message */
+      text-shadow: 1px 1px 3px rgba(252, 165, 165, 0.3);
+    }
+
+    /* Testimonials Section Enhancements */
+    .testimonials {
+      background-color: #1a202c; /* Darker background for testimonials */
+      padding: 3rem 1.5rem; /* More padding */
+      border-radius: 1.5rem; /* More rounded */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+      border: 2px solid #34d399; /* Green border for attraction */
+    }
+    .testimonials h2 {
+      color: #34d399; /* Green heading */
+      font-size: 2.5rem; /* Larger heading */
+      text-shadow: 1px 1px 5px rgba(52, 211, 153, 0.3);
+    }
+    .testimonials > p { /* Direct paragraph below heading */
+      color: #a7f3d0; /* Lighter green for descriptive text */
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .testimonial-card {
+      background-color: #2d3748; /* Slightly lighter dark gray for cards */
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      border-left: 5px solid #fbbf24; /* Yellow accent border */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px) scale(1.02); /* More pronounced lift and scale */
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .testimonial-card p {
+      color: #e2e8f0; /* Lighter text for quote */
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .testimonial-card .author {
+      color: #9ca3af; /* Gray for author */
+      font-weight: 600;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .indian-traders-message {
+        font-size: 1.8rem;
+        padding-top: 1rem;
+      }
+      .top-message {
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+      }
+      .sub-top-message {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .intro-paragraph-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .intro-paragraph {
+        font-size: 1rem;
+      }
+      .intro-paragraph.highlight {
+        font-size: 1.125rem;
+      }
+      .testimonials h2 {
+        font-size: 2rem;
+      }
+      .testimonials > p {
+        font-size: 1rem;
+      }
+      .testimonial-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .indian-traders-message {
+        font-size: 1.4rem;
+        padding-top: 0.8rem;
+      }
+      .top-message {
+        font-size: 1.5rem;
+        padding-top: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+      .sub-top-message {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      .intro-paragraph-box {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .intro-paragraph {
+        font-size: 0.875rem;
+      }
+      .intro-paragraph.highlight {
+        font-size: 1rem;
+      }
+      .testimonials h2 {
+        font-size: 1.8rem;
+      }
+      .testimonials > p {
+        font-size: 0.9rem;
+      }
+      .testimonial-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-900">
+
+  <div class="indian-traders-message w-full absolute top-0 left-0 z-30">
+    INDIAN TRADER'S WAIT IS OVER! 🇮🇳
+  </div>
+
+  <div class="top-message w-full absolute top-0 left-0 z-20" style="margin-top: 4.5rem;"> WAIT IS OVER NOW! 🎉
+  </div>
+
+  <div class="sub-top-message w-full absolute top-0 left-0 z-15" style="margin-top: 9.5rem;"> India, trade with AI and be a profitable trader! 📈
+  </div>
+
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 bg-gradient-to-b from-gray-900 to-gray-800 relative z-10">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-green-400 to-emerald-600 text-transparent bg-clip-text">
+      INFO TRADER'S REPRESENT AI 🤖
+    </h1>
+
+    <div class="intro-paragraph-box">
+      <p class="intro-paragraph">
+        In the volatile currents of the market, <strong class="text-green-400">AI is not just an advantage; it's the compass guiding you to unprecedented opportunities.</strong>
+      </p>
+    </div>
+
+    <div class="intro-paragraph-box">
+      <p class="intro-paragraph highlight">
+        Are you tired of the endless research, emotional decisions, and inconsistent results that lead to <strong class="text-red-500">losing your hard-earned money and precious time</strong> in unpredictable markets?
+      </p>
+    </div>
+
+    <div class="intro-paragraph-box">
+      <p class="intro-paragraph">
+        Our cutting-edge AI eliminates guesswork, works tirelessly on your behalf 24/7, and is designed to help you <strong class="text-green-400">unlock consistent profits.</strong> Trust smart technology to secure and grow your financial future effortlessly.
+      </p>
+    </div>
+
+    <div class="slogan-text text-3xl sm:text-4xl md:text-5xl font-extrabold mb-12 max-w-3xl mx-auto">
+      CONNECT WITH INFO TRADER'S FAMILY<br>GET PROFIT, UNLOCK PROFIT! 💰
+    </div>
+
+    <button id="startButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg transition duration-300 text-xl shadow-lg hover:shadow-xl">
+      Start Your AI Trading Journey
+    </button>
+  </section>
+
+  <section id="quizSection" class="hidden py-16 px-6 bg-gray-800 text-center rounded-xl shadow-lg max-w-3xl mx-auto my-12">
+    <h2 class="text-3xl font-bold mb-8 text-white">Quick Check: Your Trading Interest 🤔</h2>
+    <p class="text-lg text-gray-300 mb-8">Answer a couple of easy questions to help us understand your interest:</p>
+
+    <div class="mb-8 text-left">
+      <p class="text-xl font-semibold text-blue-400 mb-4">1. How would you describe your current trading experience?</p>
+      <div class="custom-radio">
+        <label>
+          <input type="radio" name="q1" value="beginner">
+          <span></span> Beginner
+        </label>
+        <label>
+          <input type="radio" name="q1" value="intermediate">
+          <span></span> Intermediate
+        </label>
+        <label>
+          <input type="radio" name="q1" value="experienced">
+          <span></span> Experienced
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-8 text-left">
+      <p class="text-xl font-semibold text-blue-400 mb-4">2. What's your primary goal with AI-powered trading?</p>
+      <div class="custom-radio">
+        <label>
+          <input type="radio" name="q2" value="efficiency">
+          <span></span> Improve efficiency
+        </label>
+        <label>
+          <input type="radio" name="q2" value="profitability">
+          <span></span> Increase profitability
+        </label>
+        <label>
+          <input type="radio" name="q2" value="risk_management">
+          <span></span> Better risk management
+        </label>
+      </div>
+    </div>
+
+    <p class="text-xl text-gray-300 mb-8 font-bold">Are you interested in exploring the power of AI with us? 💡</p>
+    <button id="exploreAIButton" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-lg transition duration-300 text-xl shadow-lg hover:shadow-xl">
+      Yes, I'm Interested!
+    </button>
+  </section>
+
+  <section id="connectSection" class="hidden py-16 px-6 bg-gray-800 text-center rounded-xl shadow-lg max-w-3xl mx-auto my-12">
+    <h2 class="text-3xl font-bold mb-8 text-white">Connect With Us! 🌐</h2>
+    <p class="text-lg text-gray-300 mb-10">Join our vibrant community and dive deeper into the world of AI trading. Don't miss out! 👇</p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <a href="https://t.me/banknifty_0118" target="_blank" rel="noopener noreferrer"
+         class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-lg shadow-md flex items-center justify-center">
+        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M18.364 5.636a9 9 0 100 12.728 9 9 0 000-12.728zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.364 7.636l-3.636 3.636-1.727-1.727a.5.5 0 00-.707 0l-.707.707a.5.5 0 000 .707l2.121 2.121a.5.5 0 00.707 0l4.343-4.343a.5.5 0 000-.707l-.707-.707a.5.5 0 00-.707 0z"/></svg>
+        Join Telegram ✈
+      </a>
+      <a href="https://youtube.com/@infotrader_?si=I9uNiiqZE9ao1G2r" target="_blank" rel="noopener noreferrer"
+         class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-lg shadow-md flex items-center justify-center">
+        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M21.54 6.51c-.2-1.2-.97-2.17-2.17-2.37C17.06 4 12 4 12 4s-5.06 0-7.37.14c-1.2.2-2.17.97-2.37 2.17C2 8.94 2 12 2 12s0 3.06.14 7.37c.2 1.2.97 2.17 2.17 2.37C6.94 20 12 20 12 20s5.06 0 7.37-.14c1.2-.2 2.17-.97 2.37-2.17C22 15.06 22 12 22 12s0-3.06-.14-7.37zM10 15.5V8.5l6 3.5-6 3.5z"/></svg>
+        Visit YouTube ▶
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gray-900 text-center testimonials">
+    <h2 class="text-3xl font-bold mb-10 text-white">Trusted by Traders Across India ⭐</h2>
+    <p class="text-lg text-gray-300 mb-10">Don't just take our word for it! Hear directly from our satisfied traders who have transformed their financial journeys with Info Trader's AI.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left">
+      <div class="bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+        <p class="text-gray-300">"Info-Tech AI has revolutionized my trading. The insights are incredibly accurate, and I've seen a significant improvement in my returns!"</p>
+        <span class="block mt-4 text-sm text-gray-400 author">– Rahul Sharma, Mumbai 📈</span>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+        <p class="text-gray-300">"As a new trader, I was overwhelmed. Info-Tech AI made complex strategies accessible and helped me gain confidence. Highly recommended!"</p>
+        <span class="block mt-4 text-sm text-gray-400 author">– Priya Singh, Delhi 🌟</span>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+        <p class="text-gray-300">"The best AI trading solution out there. Their support is fantastic, and the results speak for themselves."</p>
+        <span class="block mt-4 text-sm text-gray-400 author">– Amit Kumar, Bangalore 💰</span>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+        <p class="text-gray-300">"I've tried many platforms, but Info-Tech AI stands out. It's truly a game-changer for anyone serious about trading."</p>
+        <span class="block mt-4 text-sm text-gray-400 author">– Sneha Reddy, Hyderabad 🚀</span>
+      </div>
+    </div>
+    <p class="mt-8 text-gray-500 text-sm italic">(These are sample testimonials. Please replace them with actual, genuine feedback from your users for maximum impact.)</p>
+  </section>
+
+  <section class="py-16 px-6 bg-gray-800 text-center rounded-xl shadow-lg max-w-3xl mx-auto my-12">
+    <p class="text-2xl font-bold text-white mb-4">Thank you for visiting! We're excited to embark on this journey with you. 💖</p>
+    <p class="text-xl text-gray-300">Warmest Regards and Prosperous Trading,<br><span class="block mt-2 text-green-400 font-semibold">The Info Trader's AI Team 🌟📊</span></p>
+  </section>
+
+  <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+    © 2025 INFO TRADER'S REPRESENT AI. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('startButton').addEventListener('click', function() {
+      document.getElementById('quizSection').classList.remove('hidden');
+      this.classList.add('hidden'); // Hide the start button
+    });
+
+    document.getElementById('exploreAIButton').addEventListener('click', function() {
+      // In a real application, you might process the answers here.
+      // For this basic example, we'll just show the next section.
+      document.getElementById('connectSection').classList.remove('hidden');
+      document.getElementById('quizSection').classList.add('hidden'); // Hide the quiz section
+    });
+  </script>
+</body>
+</html>
